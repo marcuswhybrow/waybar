@@ -74,7 +74,7 @@ in builtins.toJSON {
   };
 
   "custom/updates" = {
-    exec = "${updates} ~/.nixos";
+    exec = "${updates} ~/Repositories/nixos";
     on-click = "${alacritty} --working-directory ~/.nixos";
     interval = 1;
   };
