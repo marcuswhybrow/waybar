@@ -58,11 +58,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1701268005,
-        "narHash": "sha256-qU+kBoKojpiDelgRtajZ9WsNRC777zI/fv6j0BgCImw=",
+        "lastModified": 1701380643,
+        "narHash": "sha256-wHsn7Wc2QSXo1de2lGLiHS+t44VU8XnrPG7TZpTeCzY=",
         "owner": "marcuswhybrow",
         "repo": "nixpkgs-updates",
-        "rev": "2c93a7471665324728d971e91ff6380d5e8db877",
+        "rev": "9f32648506ccf97c5698207ae549920d0f97f420",
         "type": "github"
       },
       "original": {
