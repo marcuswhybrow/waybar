@@ -1,0 +1,154 @@
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+}
+#waybar {
+  color: #000000;
+  font-family: "FiraCode Nerd Font";
+  font-size: 15px;
+
+  background: transparent;
+}
+
+@keyframes critical {
+  0% {
+    color: #eee;
+    opacity: 0.9;
+  }
+
+  70% {
+    color: #e00;
+    opacity: 0.5;
+  }
+
+  100% {
+    color: #eee;
+    opacity: 0.9;
+  }
+}
+
+@keyframes warning {
+  0% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.warning { 
+  animation: warning 5s infinite;
+}
+.critical { 
+  animation: critical 2s infinite;
+}
+
+#cpu {
+}
+
+#network, #cpu, #memory, #temperature,
+#disk, #pulseaudio, #battery, #clock,
+#custom-logout, #workspaces, #tray,
+#mode, #custom-wifi-alarm, #bluetooth, #pipewire, #privacy {
+  padding: 3px 0 1px;
+  border-radius: 18px;
+  margin-right: 20px;
+  text-shadow: 1px 1px #000;
+  color: #eee;
+  font-weight: bold;
+}
+
+#custom-wifi-alarm {
+  margin-left: 16px;
+  margin-right: -4px;
+}
+
+#network {
+  margin-left: 20px;
+}
+
+/* #clock.date {} */
+#clock.time {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#memory .icon {
+  color: red;
+}
+
+@keyframes charging {
+  0% {
+    color: #8f8;
+  }
+
+  70% {
+    color: #5b5;
+  }
+
+  100% {
+    color: #8f8;
+  }
+}
+
+#battery.charging { 
+  animation: charging 6s infinite;
+}
+
+#workspaces {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+#workspaces button {
+  background: rgba(255,255,255,0.9);
+  border-radius: 18px;
+  border-top: 2px solid transparent;
+  margin: 0;
+  margin-right: 5px;
+  padding: 2px 6px;
+  transition: all 0.1s ease-in-out;
+
+  color: #333;
+}
+#workspaces button:hover {
+  border-top: 2px solid transparent;
+  color: #333;
+  font-weight: bold;
+}
+#workspaces button.active {
+  color: #333;
+  font-weight: bold;
+  min-width: 40px;
+}
+#workspaces button.urgent {
+  color: #ff8800;
+}
+
+#custom-updates {
+  background: rgba(255,255,255,0.9);
+  border-radius: 18px;
+  border-top: 2px solid transparent;
+  margin: 0;
+  margin-right: 10px;
+  padding: 2px 6px;
+  transition: all 0.1s ease-in-out;
+
+  color: #333;
+  font-weight: bold;
+}
+
+#tray {
+  border-radius: 18px;
+  padding: 2px 6px;
+}
+/* #tray menu {} */
+
