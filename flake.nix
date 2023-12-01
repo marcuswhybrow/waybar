@@ -5,7 +5,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     networking.url = "github:marcuswhybrow/networking";
     nixpkgs-updates.url = "github:marcuswhybrow/nixpkgs-updates";
+    rofi.url = "github:marcuswhybrow/rofi";
     alacritty.url = "github:marcuswhybrow/alacritty";
+    logout.url = "github:marcuswhybrow/logout";
   };
 
   outputs = inputs: let 

@@ -3,6 +3,8 @@
   updates = "${inputs.nixpkgs-updates.packages.x86_64-linux.nixpkgs-updates}/bin/nixpkgs-updates";
   networking = "${inputs.networking.packages.x86_64-linux.networking}/bin/networking";
   alacritty = "${inputs.alacritty.packages.x86_64-linux.alacritty}/bin/alacritty";
+  logout = "${inputs.logout.packages.x86_64-linux.logout}/bin/logout";
+  rofi = "${inputs.rofi.packages.x86_64-linux.rofi}/bin/rofi";
   htop = "${pkgs.htop}/bin/htop";
   open = "${pkgs.xdg-utils}/bin/xdg-open";
   qdirstat = "${pkgs.qdirstat}/bin/qdirstat";
@@ -16,6 +18,7 @@ in builtins.toJSON {
   width = null;
 
   modules-left = [
+    "custom/apps"
     "custom/wifi-alarm"
     "network"
     "cpu"
@@ -34,6 +37,7 @@ in builtins.toJSON {
     # "bluetooth"
     "custom/updates"
     "clock#date"
+    "custom/logout"
   ];
 
   tray = {
@@ -75,8 +79,19 @@ in builtins.toJSON {
 
   "custom/updates" = {
     exec = "${updates} ~/Repositories/nixos";
-    on-click = "${alacritty} --working-directory ~/.nixos";
+    on-click = "${alacritty} --working-directory ~/Repositories/nixos";
     interval = 1;
+  };
+
+  "custom/apps" = {
+    format = "Apps";
+    on-click = ''${rofi} -show drun -i -drun-display-format {name} -theme-str 'entry { placeholder: "Launch"; }' '';
+    tooltip = false;
+  };
+
+  "custom/logout" = {
+    format = "";
+    on-click = "${logout}";
   };
 
   cpu = {
