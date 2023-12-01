@@ -142,9 +142,9 @@
 
 #custom-apps {
   background: rgba(0,0,0,0.1);
-  border: 3px solid white;
-  color: white;
-  font-weight: bold;
+  border: 1px solid white;
+  color: rgba(255,255,255,0.8);
+  font-weight: normal;
 
   padding: 2px 8px 2px;
   margin-right: 0;
@@ -158,9 +158,9 @@
 
 #custom-logout {
   background: rgba(0,0,0,0.1);
-  border: 3px solid white;
-  color: white;
-  font-weight: bold;
+  border: 1px solid white;
+  color: rgba(255,255,255,0.8);
+  font-weight: normal;
 
   padding: 4px 11px 4px 8px;
   margin-right: 20px;
