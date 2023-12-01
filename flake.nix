@@ -3,17 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    networking.url = "github:marcuswhybrow/networking";
-    nixpkgs-updates.url = "github:marcuswhybrow/nixpkgs-updates";
-    rofi.url = "github:marcuswhybrow/rofi";
-    alacritty.url = "github:marcuswhybrow/alacritty";
-    logout.url = "github:marcuswhybrow/logout";
+    mwpkgs.url = "github:marcuswhybrow/mwpkgs";
   };
 
   outputs = inputs: let 
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+    mwpkgs = inputs.mwpkgs.packages.x86_64-linux;
 
-    configText = import ./config.nix { inherit pkgs inputs; };
+    configText = import ./config.nix { inherit pkgs mwpkgs; };
     config = pkgs.writeText "config" configText;
 
     styleText = builtins.readFile ./style.css;
