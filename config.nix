@@ -92,6 +92,7 @@ in builtins.toJSON {
   "custom/logout" = {
     format = "";
     on-click = "${logout}";
+    tooltip = false;
   };
 
   cpu = {
