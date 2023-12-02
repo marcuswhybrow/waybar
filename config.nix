@@ -78,7 +78,7 @@ in builtins.toJSON {
   };
 
   "custom/updates" = {
-    exec = "${flake-updates} --flake ~/Repositories/ray-peat-rodeo-rust/ --output ' %s'";
+    exec = "${flake-updates} --flake ~/Repositories/nixos --output ' %s'";
     on-click = "${alacritty} --working-directory ~/Repositories/nixos";
     interval = 1;
   };
