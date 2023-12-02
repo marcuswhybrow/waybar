@@ -125,7 +125,7 @@ in builtins.toJSON {
 
   disk = {
     interval = 3;
-    format = "${icon ""} {percentage_used:02}%";
+    format = "${icon ""} {free}";
     tooltip-format = "{used} of {total} SSD";
     on-click = "${qdirstat} ~";
   };
