@@ -1,6 +1,6 @@
 { pkgs, mwpkgs, ... }: let 
   icon = text: ''<span color="#fff" font_family="Font Awesome 6 Free">${text}</span>'';
-  updates = "${mwpkgs.flake-updates}/bin/nixpkgs-updates";
+  flake-updates = "${mwpkgs.flake-updates}/bin/flake-updates";
   networking = "${mwpkgs.networking}/bin/networking";
   alacritty = "${mwpkgs.alacritty}/bin/alacritty";
   logout = "${mwpkgs.logout}/bin/logout";
@@ -78,7 +78,7 @@ in builtins.toJSON {
   };
 
   "custom/updates" = {
-    exec = "${updates} ~/Repositories/nixos";
+    exec = "${flake-updates} --flake ~/Repositories/ray-peat-rodeo-rust/ --output ' %s'";
     on-click = "${alacritty} --working-directory ~/Repositories/nixos";
     interval = 1;
   };
@@ -124,7 +124,7 @@ in builtins.toJSON {
   };
 
   disk = {
-    interval = 60;
+    interval = 3;
     format = "${icon ""} {percentage_used:02}%";
     tooltip-format = "{used} of {total} SSD";
     on-click = "${qdirstat} ~";

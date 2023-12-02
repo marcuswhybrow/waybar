@@ -3,7 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    mwpkgs.url = "github:marcuswhybrow/mwpkgs";
+    mwpkgs = {
+      url = "github:marcuswhybrow/mwpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: let 
