@@ -11,7 +11,6 @@
 in builtins.toJSON {
   layer = "top";
   position = "top";
-  mode = "dock";
   ipc = false;
   margin = "10 20 -10 20";
   height = null;
