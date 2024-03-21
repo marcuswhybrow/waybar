@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    waybar = {
+      url = "github:Alexays/Waybar/0.10.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     mwpkgs = {
       url = "github:marcuswhybrow/mwpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,6 +16,7 @@
   outputs = inputs: let 
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
     mwpkgs = inputs.mwpkgs.packages.x86_64-linux;
+    waybar = inputs.waybar.packages.x86_64-linux.default;
 
     configText = import ./config.nix { inherit pkgs mwpkgs; };
     config = pkgs.writeText "config" configText;
@@ -27,13 +32,13 @@
       ln -s ${style} $out/share/style.css
 
       mkdir --parents $out/bin
-      makeWrapper ${pkgs.waybar}/bin/waybar $out/bin/waybar \
+      makeWrapper ${waybar}/bin/waybar $out/bin/waybar \
         --add-flags "--config $out/share/config --style $out/share/style.css"
     '';
   in {
     packages.x86_64-linux.waybar = pkgs.symlinkJoin {
       name = "waybar";
-      paths = [ wrapper pkgs.waybar ]; # first ./bin/waybar has precedence
+      paths = [ wrapper waybar ]; # first ./bin/waybar has precedence
     };
 
     packages.x86_64-linux.default = inputs.self.packages.x86_64-linux.waybar;
