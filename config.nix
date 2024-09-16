@@ -1,10 +1,10 @@
-{ pkgs, mwpkgs, ... }: let 
+{ pkgs, inputs, ... }: let 
   icon = text: ''<span color="#fff" font_family="Font Awesome 6 Free">${text}</span>'';
-  flake-updates = "${mwpkgs.flake-updates}/bin/flake-updates";
-  networking = "${mwpkgs.networking}/bin/networking";
-  alacritty = "${mwpkgs.alacritty}/bin/alacritty";
-  logout = "${mwpkgs.logout}/bin/logout";
-  rofi = "${mwpkgs.rofi}/bin/rofi";
+  flake-updates = "${inputs.flake-updates.packages.x86_64-linux.flake-updates}/bin/flake-updates";
+  networking = "${inputs.networking.packages.x86_64-linux.networking}/bin/networking";
+  alacritty = "${inputs.alacritty.packages.x86_64-linux.alacritty}/bin/alacritty";
+  logout = "${inputs.logout.packages.x86_64-linux.logout}/bin/logout";
+  rofi = "${inputs.rofi.packages.x86_64-linux.rofi}/bin/rofi";
   htop = "${pkgs.htop}/bin/htop";
   open = "${pkgs.xdg-utils}/bin/xdg-open";
   qdirstat = "${pkgs.qdirstat}/bin/qdirstat";
